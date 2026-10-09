@@ -71,7 +71,9 @@ Typography uses GLAM-E Lab's Cooper Hewitt as a placeholder. When Art UK's web f
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds and deploys to GitHub Pages on every push to `main`. The site expects to be served from the root of a (sub)domain. To serve from a sub-path instead, set `PATH_PREFIX=/toolkit/` at build time.
+The site deploys to Cloudflare (Workers with static assets) from the GitHub repository. `wrangler.jsonc` points Cloudflare at `_site/`. In the Cloudflare project the build command is `npm run build`, the deploy command is `npx wrangler deploy`, and the `NODE_VERSION` environment variable is `20`. Pushes to `main` deploy to production; pull requests get preview URLs.
+
+The site expects to be served from the root of a (sub)domain. To serve from a sub-path instead, set `PATH_PREFIX=/toolkit/` at build time.
 
 ## Known placeholders
 

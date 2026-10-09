@@ -1,0 +1,7 @@
+{
+  // Cloudflare Workers static-assets deployment.
+  // Build with `npm run build`; wrangler uploads the contents of _site.
+  "name": "artuk-open-glam-toolkit",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./_site" }
+}
