@@ -1,0 +1,12 @@
+<nav class="breadcrumb" aria-label="You are here">
+  <ol class="breadcrumb__list">
+    {% for slug in entry.trail %}
+      {% set crumb = toolkit.bySlug[slug] %}
+      {% if loop.last %}
+        <li class="breadcrumb__item" aria-current="page" data-crumb="{{ crumb.slug }}">{{ crumb.label }}</li>
+      {% else %}
+        <li class="breadcrumb__item" data-crumb="{{ crumb.slug }}"><a href="{{ crumb.url | url }}">{{ crumb.label }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>

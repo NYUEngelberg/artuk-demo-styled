@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <button class="site-header__menu" type="button" aria-controls="sidenav" aria-expanded="false" data-nav-toggle>
+      <span class="site-header__menu-icon" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+
+    <a class="site-header__brand" href="{{ '/' | url }}">
+      <span class="site-header__logo">{% include "partials/artuk-logo.njk" %}</span>
+      <span class="site-header__title">Open GLAM Toolkit</span>
+    </a>
+
+    <a class="site-header__partner" href="https://www.glamelab.org/" rel="noopener">
+      <span class="site-header__partner-kicker">In partnership with</span>
+      <span class="glam-e-lockup">
+        <img src="{{ '/assets/images/glam-e-icon.svg' | url }}" alt="" width="34" height="14">
+        <span>glam-e lab</span>
+      </span>
+    </a>
+  </div>
+</header>

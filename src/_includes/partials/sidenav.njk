@@ -1,0 +1,33 @@
+{% macro navItem(p, current) %}
+  <li class="sidenav__item{% if p.slug == current %} is-current{% endif %}" data-nav="{{ p.slug }}">
+    <a href="{{ p.url | url }}" {% if p.slug == current %}aria-current="page"{% endif %}>
+      {% if p.module %}<span class="sidenav__num">{{ p.module }}</span>{% endif %}
+      <span class="sidenav__label">{{ p.label }}</span>
+      <span class="sidenav__badge" hidden>For you</span>
+      <span class="sidenav__check" aria-label="visited" hidden></span>
+    </a>
+  </li>
+{% endmacro %}
+
+<nav id="sidenav" class="sidenav" aria-label="Toolkit sections">
+  <div class="sidenav__inner">
+    {% for group in toolkit.groups %}
+      <div class="sidenav__group">
+        <h2 class="sidenav__heading">{{ group.label }}</h2>
+        <ol class="sidenav__list">
+          {% for p in toolkit.pages | inGroup(group.id) %}
+            {{ navItem(p, entry.slug) }}
+            {% if p.slug == "about-you" %}
+              <li class="sidenav__role" data-role-slot hidden>
+                <span class="sidenav__role-kicker">Your role</span>
+                <a class="sidenav__role-link" href="#" data-role-link></a>
+                <a class="sidenav__role-change" href="{{ '/about-you/' | url }}">change</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </div>
+    {% endfor %}
+  </div>
+</nav>
+<div class="sidenav-backdrop" data-nav-toggle hidden></div>

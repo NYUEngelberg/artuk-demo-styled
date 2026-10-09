@@ -1,0 +1,7 @@
+node_modules/
+_site/
+src/_data/generated/
+.DS_Store
+background_materials/
+CLAUDE.md
+claude.md

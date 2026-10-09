@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+---
+{% set prevPage = toolkit.bySlug[entry.prev] if entry.prev else null %}
+{% set nextPage = toolkit.bySlug[entry.next] if entry.next else null %}
+<div class="shell">
+  {% include "partials/sidenav.njk" %}
+
+  <main id="main" class="page">
+    <div class="page__header">
+      {% include "partials/breadcrumb.njk" %}
+      <h1 class="page__title">{{ title }}</h1>
+    </div>
+
+    <article class="page__body prose">
+      {{ content | safe }}
+    </article>
+
+    <nav class="pager" aria-label="Previous and next">
+      {% if prevPage %}
+        <a class="pager__link pager__link--prev" href="{{ prevPage.url | url }}" data-page="{{ prevPage.slug }}">
+          <span class="pager__kicker">Previous</span>
+          <span class="pager__label">{{ prevPage.label }}</span>
+        </a>
+      {% else %}<span></span>{% endif %}
+      {% if nextPage %}
+        <a class="pager__link pager__link--next" href="{{ nextPage.url | url }}" data-page="{{ nextPage.slug }}">
+          <span class="pager__kicker">Next</span>
+          <span class="pager__label">{{ nextPage.label }}</span>
+        </a>
+      {% endif %}
+    </nav>
+  </main>
+</div>

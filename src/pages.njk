@@ -1,0 +1,11 @@
+---
+pagination:
+  data: generated.passages
+  size: 1
+  alias: entry
+permalink: "{{ entry.url }}index.html"
+layout: layouts/toolkit.njk
+eleventyComputed:
+  title: "{{ entry.title }}"
+---
+{{ entry.body | safe }}

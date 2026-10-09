@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · {{ toolkit.title }}</title>
+  <meta name="description" content="Practical guidance from Art UK and GLAM-E Lab to help UK public collections understand copyright and open access.">
+  <link rel="icon" href="{{ '/assets/images/favicon.png' | url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/toolkit.css' | url }}">
+</head>
+<body data-page="{{ entry.slug }}" data-root="{{ '/' | url }}"{% if entry.role %} data-role="{{ entry.slug }}"{% endif %}>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  {% include "partials/header.njk" %}
+  {{ content | safe }}
+  {% include "partials/footer.njk" %}
+  <script id="toolkit-data" type="application/json">{{ toolkitJson | safe }}</script>
+  <script src="{{ '/assets/js/toolkit.js' | url }}" defer></script>
+</body>
+</html>
